@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>N.W.A Squad</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <button id="menuBtn">Главное меню</button>
+        <button id="priceBtn">Price</button>
+    </div>
+
+    <div id="mainContent" class="content">
+        <h1>Owner by</h1>
+        <h2>Retributor and Kodein88</h2>
+    </div>
+
+    <div id="priceContent" class="content" style="display:none;">
+        <h1>Price List</h1>
+        <p>1. Def 1 Month - 2$</p>
+        <p>2. Def от всего клана - 15$</p>
+        <p>3. Manuals - 50$</p>
+    </div>
+
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const priceBtn = document.getElementById('priceBtn');
+        const mainContent = document.getElementById('mainContent');
+        const priceContent = document.getElementById('priceContent');
+
+        menuBtn.addEventListener('click', () => {
+            mainContent.style.display = 'block';
+            priceContent.style.display = 'none';
+        });
+
+        priceBtn.addEventListener('click', () => {
+            mainContent.style.display = 'none';
+            priceContent.style.display = 'block';
+        });
+    </script>
+</body>
+</html>
