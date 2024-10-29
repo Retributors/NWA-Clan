@@ -2,11 +2,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: all 0.3s ease;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #1a1a1a;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(180deg, #1a1a1a 0%, #0d0d0d 100%);
     color: #f5f5f5;
     text-align: center;
     height: 100vh;
@@ -14,6 +15,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    position: relative;
 }
 
 .navbar {
@@ -23,24 +26,45 @@ body {
     display: flex;
     justify-content: center;
     gap: 20px;
+    z-index: 10;
 }
 
 .styled-btn {
-    background-color: #333;
+    background: rgba(51, 51, 51, 0.8);
     color: white;
     padding: 15px 30px;
     font-size: 16px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 10px rgba(255, 0, 110, 0.5);
     text-decoration: none;
     display: inline-block;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.4s, box-shadow 0.4s;
+}
+
+.styled-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 0, 110, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.5s;
+    z-index: 0;
+}
+
+.styled-btn:hover::before {
+    transform: translate(-50%, -50%) scale(1);
 }
 
 .styled-btn:hover {
-    background-color: #ff006e;
+    color: #ff006e;
     box-shadow: 0 4px 15px rgba(255, 0, 110, 0.7);
 }
 
@@ -49,11 +73,53 @@ body {
     text-shadow: 0 0 5px #ff006e, 0 0 10px #ff336e, 0 0 15px #ff336e;
     font-size: 36px;
     margin-bottom: 20px;
+    animation: flicker 1.5s infinite alternate;
+}
+
+@keyframes flicker {
+    0% { text-shadow: 0 0 5px #ff006e; }
+    50% { text-shadow: 0 0 15px #ff336e; }
+    100% { text-shadow: 0 0 5px #ff006e; }
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
 }
 
 .content h1 {
     font-size: 36px;
     margin-bottom: 10px;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Price list styles */
+#priceContent {
+    background: rgba(51, 51, 51, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+#priceContent p {
+    margin: 10px 0;
+    font-size: 20px;
 }
 
 /* Responsive design for mobile */
@@ -71,3 +137,23 @@ body {
         font-size: 28px;
     }
 }
+
+/* Background animation */
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(270deg, #ff006e, #3366ff, #00ccff, #ff006e);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    z-index: -1;
+        }
