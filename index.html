@@ -15,6 +15,8 @@
     <div id="mainContent" class="content">
         <h1>Owner by</h1>
         <h2>Retributor and Kodein88</h2>
+        <a href="https://t.me/NWACLANS" class="btn">Telegram</a>
+        <button id="buySoftwareBtn" class="btn pink-btn">Купить софт</button>
     </div>
 
     <div id="priceContent" class="content" style="display:none;">
@@ -24,11 +26,23 @@
         <p>3. Manuals - 50$</p>
     </div>
 
+    <!-- Модальное окно -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+            <img src="PATH_TO_YOUR_IMAGE" alt="Софт" class="modal-img">
+            <a href="https://t.me/Hitkillme" class="btn pink-btn">Перейти к покупке</a>
+        </div>
+    </div>
+
     <script>
         const menuBtn = document.getElementById('menuBtn');
         const priceBtn = document.getElementById('priceBtn');
         const mainContent = document.getElementById('mainContent');
         const priceContent = document.getElementById('priceContent');
+        const buySoftwareBtn = document.getElementById('buySoftwareBtn');
+        const modal = document.getElementById('modal');
+        const closeModal = document.getElementById('closeModal');
 
         menuBtn.addEventListener('click', () => {
             mainContent.style.display = 'block';
@@ -38,6 +52,20 @@
         priceBtn.addEventListener('click', () => {
             mainContent.style.display = 'none';
             priceContent.style.display = 'block';
+        });
+
+        buySoftwareBtn.addEventListener('click', () => {
+            modal.style.display = 'block';
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
         });
     </script>
 </body>
