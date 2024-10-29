@@ -33,31 +33,31 @@ button, .btn {
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
     display: inline-block;
 }
 
-button:hover, .btn:hover {
-    background-color: #555;
+.epic-btn {
+    background-color: #0073e6;
+    box-shadow: 0 4px 10px rgba(0, 115, 230, 0.5);
 }
 
-.pink-btn {
-    background-color: #ff006e;
+.epic-btn:hover {
+    background-color: #005bb5;
+    box-shadow: 0 4px 15px rgba(0, 115, 230, 0.7);
 }
 
-.pink-btn:hover {
-    background-color: #ff336e;
+.neon-text {
+    color: #ff006e;
+    text-shadow: 0 0 5px #ff006e, 0 0 10px #ff336e, 0 0 15px #ff336e;
+    font-size: 36px;
+    margin-bottom: 20px;
 }
 
 .content h1 {
     font-size: 36px;
     margin-bottom: 10px;
-}
-
-.content h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
 }
 
 .modal {
@@ -107,7 +107,7 @@ button:hover, .btn:hover {
         font-size: 30px;
     }
 
-    .content h2 {
-        font-size: 22px;
+    .neon-text {
+        font-size: 28px;
     }
 }
