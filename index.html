@@ -8,14 +8,14 @@
 </head>
 <body>
     <div class="navbar">
-        <button id="menuBtn">Главное меню</button>
-        <a href="https://t.me/NWACLANS" class="btn epic-btn">Telegram</a>
-        <button id="priceBtn">Price</button>
+        <button id="menuBtn" class="styled-btn">Главное меню</button>
+        <a href="https://t.me/NWACLANS" class="styled-btn" target="_blank">Telegram</a>
+        <button id="priceBtn" class="styled-btn">Price</button>
     </div>
 
     <div id="mainContent" class="content">
         <h1 class="neon-text">Owner by Retributor</h1>
-        <button id="buySoftwareBtn" class="btn epic-btn">Купить софт</button>
+        <a href="https://t.me/Hitkillme" class="styled-btn" target="_blank">Перейти к покупке нашего нового софта</a>
     </div>
 
     <div id="priceContent" class="content" style="display:none;">
@@ -25,23 +25,11 @@
         <p>3. Manuals - 50$</p>
     </div>
 
-    <!-- Модальное окно -->
-    <div id="modal" class="modal">
-        <div class="modal-content">
-            <span id="closeModal" class="close">&times;</span>
-            <img src="/storage/emulated/0/Pictures/AyuGram/IMG_20241030_020936_662.jpg" alt="Софт" class="modal-img">
-            <a href="https://t.me/Hitkillme" class="btn epic-btn">Перейти к покупке</a>
-        </div>
-    </div>
-
     <script>
         const menuBtn = document.getElementById('menuBtn');
         const priceBtn = document.getElementById('priceBtn');
         const mainContent = document.getElementById('mainContent');
         const priceContent = document.getElementById('priceContent');
-        const buySoftwareBtn = document.getElementById('buySoftwareBtn');
-        const modal = document.getElementById('modal');
-        const closeModal = document.getElementById('closeModal');
 
         menuBtn.addEventListener('click', () => {
             mainContent.style.display = 'block';
@@ -51,20 +39,6 @@
         priceBtn.addEventListener('click', () => {
             mainContent.style.display = 'none';
             priceContent.style.display = 'block';
-        });
-
-        buySoftwareBtn.addEventListener('click', () => {
-            modal.style.display = 'block';
-        });
-
-        closeModal.addEventListener('click', () => {
-            modal.style.display = 'none';
-        });
-
-        window.addEventListener('click', (event) => {
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
         });
     </script>
 </body>
